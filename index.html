@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Студия маникюра и педикюра</title>
+<meta name="description" content="Студия маникюра и педикюра. Демонстрационный сайт.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">К содержимому</a>
+
+<header class="header">
+  <div class="wrap bar">
+    <a class="logo" href="#top" data-brand="name"></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Меню"><span></span></button>
+    <nav id="nav" aria-label="Основная навигация">
+      <a href="#about">О студии</a><a href="#services">Услуги</a><a href="#advantages">Преимущества</a>
+      <a href="#works">Работы</a><a href="#reviews">Отзывы</a><a href="#contacts">Контакты</a>
+      <a class="btn btn-sm" href="#booking">Записаться</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="lead-name" data-brand="tagline"></p>
+        <h1 data-brand="heroTitle"></h1>
+        <p class="lead" data-brand="heroText"></p>
+        <div class="actions"><a class="btn" href="#booking">Записаться</a><a class="btn btn-ghost" href="#services">Посмотреть услуги</a></div>
+      </div>
+      <!-- Здесь будет фотография интерьера или работ: добавить <img src="assets/images/hero.jpg" alt="..."> внутрь .hero-visual -->
+      <div class="hero-visual" role="img" aria-label="Место для фотографии студии"></div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="about">
+    <div class="wrap split">
+      <!-- Добавить фотографию рабочего пространства внутрь .photo-slot -->
+      <div class="photo-slot" role="img" aria-label="Место для фотографии рабочего пространства"></div>
+      <div><h2 data-brand="aboutTitle"></h2><div id="about-text" class="prose"></div></div>
+    </div>
+  </section>
+
+  <section class="section tint reveal" id="services">
+    <div class="wrap">
+      <h2>Услуги и цены</h2>
+      <p class="sub">Демонстрационные цены. Детали процедуры администратор уточнит при записи.</p>
+      <div class="cards two" id="services-list"></div>
+      <p><a class="btn" href="#booking">Перейти к записи</a></p>
+    </div>
+  </section>
+
+  <section class="section reveal" id="advantages">
+    <div class="wrap"><h2>Почему к нам приходят</h2><ul class="adv" id="advantages-list"></ul></div>
+  </section>
+
+  <section class="section tint reveal" id="works">
+    <div class="wrap">
+      <h2>Примеры работ</h2>
+      <!-- Добавить фотографию работы: маникюр / педикюр / дизайн ногтей.
+           Чтобы вставить фото, укажите путь в поле src нужного элемента gallery (js/config.js). Вёрстку менять не нужно. -->
+      <div class="gallery" id="gallery-list"></div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="reviews">
+    <div class="wrap">
+      <h2>Отзывы</h2>
+      <p class="sub">Демонстрационные отзывы. Перед публикацией замените их подтверждёнными отзывами клиентов.</p>
+      <div class="cards three" id="reviews-list"></div>
+    </div>
+  </section>
+
+  <section class="section tint reveal" id="contacts">
+    <div class="wrap"><h2>Контакты</h2><p class="sub">Демонстрационные данные, подлежат замене.</p><div class="contacts" id="contacts-list"></div></div>
+  </section>
+
+  <section class="section reveal" id="booking">
+    <div class="wrap narrow">
+      <h2>Запишитесь на удобное время</h2>
+      <p class="sub">После получения заявки администратор свяжется с вами, уточнит детали и подтвердит время.</p>
+      <form id="booking-form" novalidate>
+        <div class="row">
+          <div class="field"><label for="firstName">Имя</label><input id="firstName" name="firstName" autocomplete="given-name" required aria-describedby="e-firstName"><p class="error" id="e-firstName" data-error="firstName" hidden></p></div>
+          <div class="field"><label for="lastName">Фамилия</label><input id="lastName" name="lastName" autocomplete="family-name" required aria-describedby="e-lastName"><p class="error" id="e-lastName" data-error="lastName" hidden></p></div>
+        </div>
+        <div class="field"><label for="phone">Номер телефона</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 900 000-00-00" required aria-describedby="e-phone"><p class="error" id="e-phone" data-error="phone" hidden></p></div>
+        <fieldset class="field">
+          <legend>Услуга (можно выбрать несколько)</legend>
+          <div id="service-options" class="options" aria-describedby="e-service"></div>
+          <p class="error" id="e-service" data-error="service" hidden></p>
+        </fieldset>
+        <div class="row">
+          <div class="field"><label for="date">Желаемая дата</label><input id="date" name="date" type="date" required aria-describedby="e-date"><p class="error" id="e-date" data-error="date" hidden></p></div>
+          <div class="field"><label for="time">Желаемое время</label><input id="time" name="time" type="time" required aria-describedby="e-time"><p class="error" id="e-time" data-error="time" hidden></p></div>
+        </div>
+        <p class="hint">Дата и время — пожелание. Администратор подтвердит возможность записи.</p>
+        <button class="btn" type="submit">Отправить заявку</button>
+        <div id="form-success" class="success" role="status" tabindex="-1" hidden>Спасибо! Ваша заявка подготовлена. Администратор свяжется с вами для уточнения деталей и подтверждения времени.</div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"><div class="wrap"><span data-brand="name"></span> © <span id="year"></span>. Демонстрационный сайт.</div></footer>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
